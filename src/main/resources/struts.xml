@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.custom.i18n.resources" value="textes"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+    <package namespace="/" name="default" extends="struts-default">
+        <default-action-ref name="index"/>
+        <action name="index">
+            <result>/WEB-INF/pages/login.jsp</result>
+        </action>
+
+        <action name="login" class="actions.Login">
+            <result name="success">/WEB-INF/pages/choixEnseignement.jsp</result>
+            <result name="input">/WEB-INF/pages/login.jsp</result>
+        </action>
+
+
+        <action name="selectionnerEnseignement" class="actions.SelectionEnseignement">
+            <result>/WEB-INF/pages/saisieNotes.jsp</result>
+            <result name="home">/WEB-INF/pages/login.jsp</result>
+        </action>
+
+        <action name="saisirNote" class="actions.SaisirNote">
+            <result>/WEB-INF/pages/saisieNotes.jsp</result>
+            <result name="input">/WEB-INF/pages/saisieNotes.jsp</result>
+            <result name="home">/WEB-INF/pages/login.jsp</result>
+        </action>
+
+        <action name="deconnexion" class="actions.Deconnexion">
+            <result>/WEB-INF/pages/login.jsp</result>
+        </action>
+
+    </package>
+
+</struts>
